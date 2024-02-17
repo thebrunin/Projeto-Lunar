@@ -3,7 +3,7 @@ package com.brunin.api.service.user;
 import com.brunin.api.dto.UserDto;
 import com.brunin.api.model.User;
 import com.brunin.api.repository.UserRepository;
-import com.brunin.api.security.service.SenderMailService;
+import com.brunin.api.service.SenderMailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

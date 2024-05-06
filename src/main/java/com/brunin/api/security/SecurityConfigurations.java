@@ -23,7 +23,6 @@ import static org.springframework.aop.interceptor.ExposeBeanNameAdvisors.getBean
 public class SecurityConfigurations {
     @Autowired
     private SecurityFilter securityFilter;
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http.csrf(csrf -> csrf.disable())
@@ -32,6 +31,8 @@ public class SecurityConfigurations {
                     req.requestMatchers("/login/**").permitAll()
                     .requestMatchers("/user").permitAll()
                     .requestMatchers("/open/**").permitAll()
+                    .requestMatchers("/scraping").permitAll()
+                    .requestMatchers("/task/**").hasAnyRole()
                     .anyRequest().authenticated();
                 })
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
